@@ -32,3 +32,10 @@ virtual Camera가 죽은 캐릭터 자리에 남아 새로 생겨난 캐릭터�
 
 
 결국 처음에 진행했던 MainScene을 로드하는 방식으로 진행 후 죽은 횟수 표시 기능은 미구현했습니다.
+
+###  5.게임 승리 조건
+ 캐릭터가 목표지점인 깃발에 도달하면 깃발에 붙어있는 collider를 통해 enable을 false로 만들어 캐릭터의 움직임을 멈추고, 게임 승리 패널을 띄운 후 coroutine을 사용해 5초 뒤에 다시 StartScene으로 이동하게 만들었습니다.
+ ![KakaoTalk_20231012_110810137](https://github.com/Kro513/GetFlag/assets/141483527/9e385cec-3ee9-41d7-b8ff-b7e9e2888ab4)
+
+## :clipboard: 아쉬운 부분
+ 리스폰시 DeathCount를 세는 기능을 넣고 싶었는데 리스폰 부분에서 원하는 대로 되지 않아 많이 아쉬운것 같습니다.
