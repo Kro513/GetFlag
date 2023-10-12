@@ -22,10 +22,10 @@ public class Player : MonoBehaviour
 
 	[field: SerializeField] public GameManager GameManager;
 
-	[SerializeField] private TextMeshProUGUI DeathCount;
-	[SerializeField] private int currentDeathCount = 0;
+	//[SerializeField] private TextMeshProUGUI DeathCount;
+	//[SerializeField] private int currentDeathCount = 0;
 
-	[SerializeField] private Vector3 respawnPosition;
+	//public Transform[] point;
 
 
 	private void Awake()
@@ -44,8 +44,6 @@ public class Player : MonoBehaviour
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		stateMachine.ChangeState(stateMachine.IdleState);
-
-		transform.position = respawnPosition;
 	}
 
 	private void Update()
@@ -101,23 +99,38 @@ public class Player : MonoBehaviour
 		SceneManager.LoadScene("StartScene");
 	}
 
+	//public IEnumerator RespawnCoroutine()
+	//{
+	//	DeathCount.text = (currentDeathCount + 1).ToString();
+	//	GameManager.OpenGameOverUI();
+
+	//	yield return new WaitForSeconds(5);
+
+	//	GameManager.CloseGameOverUI();
+
+	//	Respawn();
+
+	//	enabled = true;
+	//}
+
+	//private void Respawn()
+	//{
+	//	point = GameObject.Find("SpawnPoint").GetComponents<Transform>();
+
+	//	if(point.Length > 0)
+	//	{
+
+	//	}
+	//	transform.position = respawnPosition;
+	//}
 	public IEnumerator RespawnCoroutine()
 	{
-		DeathCount.text = (currentDeathCount + 1).ToString();
 		GameManager.OpenGameOverUI();
 
 		yield return new WaitForSeconds(5);
 
 		GameManager.CloseGameOverUI();
 
-		Respawn();
-
-		enabled = true;
-	}
-
-	private void Respawn()
-	{
-		Awake();
-		Start();
+		SceneManager.LoadScene("MainScene");
 	}
 }

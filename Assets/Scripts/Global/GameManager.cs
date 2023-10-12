@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField] private GameObject gameClearUI;
 
-	private string _PlayerPrefab;
-
 	private void Awake()
 	{
 		if (instance == null)
